@@ -36,6 +36,7 @@ public class FrameTelaGeral extends javax.swing.JFrame {
         btIformacoesPessoais = new javax.swing.JButton();
         btInformacoesVeiculo = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        btSintomasVeiculo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,6 +61,13 @@ public class FrameTelaGeral extends javax.swing.JFrame {
             }
         });
 
+        btSintomasVeiculo.setText("Sintomas do Veicúlo");
+        btSintomasVeiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSintomasVeiculoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -69,7 +77,8 @@ public class FrameTelaGeral extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btIformacoesPessoais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btInformacoesVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btSintomasVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(120, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -79,9 +88,11 @@ public class FrameTelaGeral extends javax.swing.JFrame {
                 .addComponent(btIformacoesPessoais)
                 .addGap(18, 18, 18)
                 .addComponent(btInformacoesVeiculo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
+                .addComponent(btSintomasVeiculo)
+                .addGap(16, 16, 16)
                 .addComponent(jButton1)
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         pack();
@@ -104,6 +115,13 @@ public class FrameTelaGeral extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btSintomasVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSintomasVeiculoActionPerformed
+      FrameSintomasVeiculo frameSintomasVeiculo = new FrameSintomasVeiculo();
+      frameSintomasVeiculo.setVisible(true);
+      
+      this.dispose();
+    }//GEN-LAST:event_btSintomasVeiculoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,6 +161,7 @@ public class FrameTelaGeral extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btIformacoesPessoais;
     private javax.swing.JButton btInformacoesVeiculo;
+    private javax.swing.JButton btSintomasVeiculo;
     private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }

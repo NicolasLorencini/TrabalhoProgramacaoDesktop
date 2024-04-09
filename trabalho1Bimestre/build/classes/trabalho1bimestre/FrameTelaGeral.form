@@ -29,6 +29,7 @@
                   <Component id="btIformacoesPessoais" max="32767" attributes="0"/>
                   <Component id="btInformacoesVeiculo" max="32767" attributes="0"/>
                   <Component id="jButton1" max="32767" attributes="0"/>
+                  <Component id="btSintomasVeiculo" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="120" max="32767" attributes="0"/>
           </Group>
@@ -41,9 +42,11 @@
               <Component id="btIformacoesPessoais" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btInformacoesVeiculo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btSintomasVeiculo" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="156" max="32767" attributes="0"/>
+              <EmptySpace pref="111" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -71,6 +74,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btSintomasVeiculo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Sintomas do Veic&#xfa;lo"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSintomasVeiculoActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
