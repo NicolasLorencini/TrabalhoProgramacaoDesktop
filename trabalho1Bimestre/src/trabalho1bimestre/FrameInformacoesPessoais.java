@@ -4,6 +4,7 @@
  */
 package trabalho1bimestre;
 
+import trabalho1bimestre.model.InformacoesPessoais;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 

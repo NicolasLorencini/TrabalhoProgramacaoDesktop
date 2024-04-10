@@ -78,7 +78,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btSintomasVeiculo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Sintomas do Veic&#xfa;lo"/>
+        <Property name="text" type="java.lang.String" value="Servi&#xe7;os Prestados"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSintomasVeiculoActionPerformed"/>

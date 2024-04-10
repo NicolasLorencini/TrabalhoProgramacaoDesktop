@@ -61,7 +61,7 @@ public class FrameTelaGeral extends javax.swing.JFrame {
             }
         });
 
-        btSintomasVeiculo.setText("Sintomas do Veicúlo");
+        btSintomasVeiculo.setText("Serviços Prestados");
         btSintomasVeiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btSintomasVeiculoActionPerformed(evt);

@@ -6,16 +6,21 @@ package trabalho1bimestre;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import trabalho1bimestre.controller.Controller;
 
 /**
  *
  * @author aluno
  */
 public class FrameServicoRegistro extends javax.swing.JFrame {
+    
+    
+    
     private final double precoBateria = 300;
     private final double precoJuntasMotor = 150; 
     private final double precoBombaAgua = 130; 
@@ -26,6 +31,8 @@ public class FrameServicoRegistro extends javax.swing.JFrame {
     
     public FrameServicoRegistro() {
        initComponents();
+       
+       Controller.listaPecas = new ArrayList<>();
         
        spBateria.setEnabled(cbBateria.isSelected());
        spJuntasMotor.setEnabled(cbJuntasMotor.isSelected());
@@ -33,10 +40,7 @@ public class FrameServicoRegistro extends javax.swing.JFrame {
        spTermostato.setEnabled(cbTermostato.isSelected());
        spFluidoTransimissao.setEnabled(cbFluidoTransmissao.isSelected());
        
-        SpinnerNumberModel model = new SpinnerNumberModel();
-        spBateria.setModel(model);
-        JSpinner.DefaultEditor editor = (JSpinner.DefaultEditor) spBateria.getEditor();
-        editor.getTextField().setEditable(false);
+       
         
         configSpinner(spBateria, precoBateria);
         configSpinner(spJuntasMotor, precoJuntasMotor);
@@ -149,7 +153,7 @@ public class FrameServicoRegistro extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btSalvar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -211,7 +215,12 @@ public class FrameServicoRegistro extends javax.swing.JFrame {
 
         jLabel6.setText("Preço: 120 R$");
 
-        jButton1.setText("Salvar");
+        btSalvar.setText("Salvar");
+        btSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSalvarActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Retornar");
 
@@ -264,7 +273,7 @@ public class FrameServicoRegistro extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1)
+                        .addComponent(btSalvar)
                         .addGap(18, 18, 18)
                         .addComponent(jButton2)))
                 .addGap(82, 82, 82))
@@ -307,7 +316,7 @@ public class FrameServicoRegistro extends javax.swing.JFrame {
                 .addComponent(tfTotalPagar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(btSalvar)
                     .addComponent(jButton2))
                 .addGap(15, 15, 15))
         );
@@ -332,11 +341,12 @@ public class FrameServicoRegistro extends javax.swing.JFrame {
     }//GEN-LAST:event_cbJuntasMotorActionPerformed
 
     private void cbBateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbBateriaActionPerformed
-       cbBateria.addActionListener((ActionEvent evt1) -> {
-           spBateria.setEnabled(cbBateria.isSelected());
-           spBateria.repaint();
-       });
+       
     }//GEN-LAST:event_cbBateriaActionPerformed
+
+    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btSalvarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -366,20 +376,16 @@ public class FrameServicoRegistro extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrameServicoRegistro().setVisible(true);
-            }
-        });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btSalvar;
     private javax.swing.JCheckBox cbBateria;
     private javax.swing.JCheckBox cbBombaAgua;
     private javax.swing.JCheckBox cbFluidoTransmissao;
     private javax.swing.JCheckBox cbJuntasMotor;
     private javax.swing.JCheckBox cbTermostato;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
