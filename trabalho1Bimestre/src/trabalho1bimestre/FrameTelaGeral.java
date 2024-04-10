@@ -17,7 +17,7 @@ public class FrameTelaGeral extends javax.swing.JFrame {
      */
     public FrameTelaGeral() {
         initComponents();
-        
+        setLocationRelativeTo(this);
        
        
         
@@ -117,8 +117,8 @@ public class FrameTelaGeral extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btSintomasVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSintomasVeiculoActionPerformed
-      FrameSintomasVeiculo frameSintomasVeiculo = new FrameSintomasVeiculo();
-      frameSintomasVeiculo.setVisible(true);
+      FrameServicosPrestados frameServicosPrestados = new FrameServicosPrestados();
+      frameServicosPrestados.setVisible(true);
       
       this.dispose();
     }//GEN-LAST:event_btSintomasVeiculoActionPerformed

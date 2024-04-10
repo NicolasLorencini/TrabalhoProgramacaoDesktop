@@ -4,25 +4,60 @@
  */
 package trabalho1bimestre;
 
-/**
- *
- * @author aluno
- */
-public class FrameServicosPrestados extends javax.swing.JFrame {
+import java.awt.Component;
+import java.util.ArrayList;
+import javax.swing.JCheckBox;
+import javax.swing.JOptionPane;
+import trabalho1bimestre.controller.Controller;
+import trabalho1bimestre.model.ServicoPrestado;
 
+    
+public class FrameServicosPrestados extends javax.swing.JFrame {
+        private final int precoTrocaOleo = 30;
+        private final int precoAlinhamento = 70;
+        private final int precoReparoFreios = 180;
+        private final int precoTrocaAmortecedores = 300;
+        
 
     public FrameServicosPrestados() {
         initComponents();
+        setLocationRelativeTo(this);
         
-    }
+        Controller.listaServicoPrestado = new ArrayList<>();
+        
+         cbTrocaOleo.addActionListener((java.awt.event.ActionEvent evt) -> {
+            registrarServico(cbTrocaOleo, precoTrocaOleo);
+        });
 
+        cbAlinhamento.addActionListener((java.awt.event.ActionEvent evt) -> {
+            registrarServico(cbAlinhamento, precoAlinhamento);
+        });
+
+        cbReparoFreios.addActionListener((java.awt.event.ActionEvent evt) -> {
+            registrarServico(cbReparoFreios, precoReparoFreios);
+        });
+
+        cbTrocaAmortecedores.addActionListener((java.awt.event.ActionEvent evt) -> {
+            registrarServico(cbTrocaAmortecedores, precoTrocaAmortecedores);
+        });
+    }
    
+   private void registrarServico(JCheckBox checkBox, int preco) {
+        if (checkBox.isSelected()) {
+            ServicoPrestado servicoPrestado = new ServicoPrestado();
+            servicoPrestado.setNome(checkBox.getText());
+            servicoPrestado.setValorUnitario(preco);
+            Controller.listaServicoPrestado.add(servicoPrestado);
+        }
+    }
+   
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btSalvar = new javax.swing.JButton();
+        btVoltar = new javax.swing.JButton();
         cbTrocaOleo = new javax.swing.JCheckBox();
         cbAlinhamento = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
@@ -43,17 +78,17 @@ public class FrameServicosPrestados extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Continuar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btSalvar.setText("Continuar");
+        btSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btSalvarActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Retornar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btVoltar.setText("Retornar");
+        btVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btVoltarActionPerformed(evt);
             }
         });
 
@@ -116,27 +151,25 @@ public class FrameServicosPrestados extends javax.swing.JFrame {
                         .addGap(166, 166, 166))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 354, Short.MAX_VALUE)
+                                .addComponent(btSalvar)
+                                .addGap(29, 29, 29)
+                                .addComponent(btVoltar)
+                                .addGap(172, 172, 172))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(cbAlinhamento, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cbReparoFreios))
+                                    .addComponent(cbReparoFreios)
+                                    .addComponent(cbTrocaAmortecedores)
+                                    .addComponent(cbTrocaOleo))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 354, Short.MAX_VALUE)
-                                .addComponent(jButton1)
-                                .addGap(29, 29, 29)
-                                .addComponent(jButton2)
-                                .addGap(164, 164, 164))
-                            .addComponent(cbTrocaAmortecedores)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(cbTrocaOleo)
-                                .addGap(70, 70, 70)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                        .addGap(58, 58, 58)
+                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
+                        .addGap(50, 50, 50)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -153,14 +186,15 @@ public class FrameServicosPrestados extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(48, 48, 48)
-                        .addComponent(cbTrocaOleo))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cbTrocaOleo)
+                        .addGap(29, 29, 29))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)
-                        .addGap(22, 22, 22)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(22, 22, 22))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,8 +212,8 @@ public class FrameServicosPrestados extends javax.swing.JFrame {
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2))
+                            .addComponent(btSalvar)
+                            .addComponent(btVoltar))
                         .addGap(47, 47, 47))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(54, 54, 54)
@@ -207,56 +241,57 @@ public class FrameServicosPrestados extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbReparoFreiosActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
+    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
+       for (Component componente : getContentPane().getComponents()) {
+        if (componente instanceof JCheckBox) {
+            JCheckBox cb = (JCheckBox) componente;
+            if (cb.isSelected()) {
+                ServicoPrestado servicoPrestado = new ServicoPrestado(); // Criando um novo objeto ServicoPrestado
+                switch (cb.getText()) {
+                    case "Troca de Óleo e Filtro de Óleo":
+                        servicoPrestado.setNome("Troca de Óleo e Filtro de Óleo");
+                        servicoPrestado.setValorUnitario(precoTrocaOleo);
+                        break;
+                    case "Alinhamento e Balanceamento de Rodas":
+                        servicoPrestado.setNome("Alinhamento e Balanceamento de Rodas");
+                        servicoPrestado.setValorUnitario(precoAlinhamento);
+                        break;
+                    case "Reparo de Freios":
+                        servicoPrestado.setNome("Reparo de Freios");
+                        servicoPrestado.setValorUnitario(precoReparoFreios);
+                        break;
+                    case "Troca de Amortecedores e Molas":
+                        servicoPrestado.setNome("Troca de Amortecedores e Molas");
+                        servicoPrestado.setValorUnitario(precoTrocaAmortecedores);
+                        break;
+                    default:
+                        break;
                 }
+                Controller.listaServicoPrestado.add(servicoPrestado);
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrameServicosPrestados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrameServicosPrestados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrameServicosPrestados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrameServicosPrestados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrameServicosPrestados().setVisible(true);
-            }
-        });
     }
 
+            JOptionPane.showMessageDialog(this, "Serviços salvos com sucesso!");
+            FrameServicoRegistro frameServicoRegistro = new FrameServicoRegistro();
+            frameServicoRegistro.setVisible(true);
+            this.dispose();
+    }//GEN-LAST:event_btSalvarActionPerformed
+
+    private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btVoltarActionPerformed
+
+    
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btSalvar;
+    private javax.swing.JButton btVoltar;
     private javax.swing.JCheckBox cbAlinhamento;
     private javax.swing.JCheckBox cbReparoFreios;
     private javax.swing.JCheckBox cbTrocaAmortecedores;
     private javax.swing.JCheckBox cbTrocaOleo;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

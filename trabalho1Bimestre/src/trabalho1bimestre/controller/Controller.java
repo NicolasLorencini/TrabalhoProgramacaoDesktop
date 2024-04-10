@@ -5,7 +5,9 @@
 package trabalho1bimestre.controller;
 
 import java.util.ArrayList;
+import trabalho1bimestre.model.InformacoesPessoais;
 import trabalho1bimestre.model.Pecas;
+import trabalho1bimestre.model.ServicoPrestado;
 
 /**
  *
@@ -14,5 +16,7 @@ import trabalho1bimestre.model.Pecas;
 public class Controller {
     
     public static ArrayList<Pecas> listaPecas; 
+    public static ArrayList<ServicoPrestado> listaServicoPrestado;
+    public static ArrayList<InformacoesPessoais> listaInformacoesPessoais;
     
 }

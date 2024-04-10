@@ -8,10 +8,9 @@ package trabalho1bimestre.model;
  *
  * @author aluno
  */
-public class Pecas {
+public class ServicoPrestado {
     public String nome;
-    public double valorUnitario;
-    public int quantidade;
+    public int valorUnitario;
 
     public String getNome() {
         return nome;
@@ -21,22 +20,13 @@ public class Pecas {
         this.nome = nome;
     }
 
-    public double getValorUnitario() {
+    public int getValorUnitario() {
         return valorUnitario;
     }
 
-    public void setValorUnitario(double valorUnitario) {
+    public void setValorUnitario(int valorUnitario) {
         this.valorUnitario = valorUnitario;
     }
-
-    public int getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
-    }
-
     
     
 }

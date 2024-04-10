@@ -4,14 +4,18 @@
  */
 package trabalho1bimestre;
 
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
+import javax.swing.JCheckBox;
+import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import trabalho1bimestre.controller.Controller;
+import trabalho1bimestre.model.Pecas;
 
 /**
  *
@@ -31,13 +35,14 @@ public class FrameServicoRegistro extends javax.swing.JFrame {
     
     public FrameServicoRegistro() {
        initComponents();
+       setLocationRelativeTo(this);
        
        Controller.listaPecas = new ArrayList<>();
         
-       spBateria.setEnabled(cbBateria.isSelected());
-       spJuntasMotor.setEnabled(cbJuntasMotor.isSelected());
-       spBombaAgua.setEnabled(cbBombaAgua.isSelected());
-       spTermostato.setEnabled(cbTermostato.isSelected());
+        spBateria.setEnabled(cbBateria.isSelected());
+        spJuntasMotor.setEnabled(cbJuntasMotor.isSelected());
+        spBombaAgua.setEnabled(cbBombaAgua.isSelected());
+        spTermostato.setEnabled(cbTermostato.isSelected());
        spFluidoTransimissao.setEnabled(cbFluidoTransmissao.isSelected());
        
        
@@ -154,7 +159,7 @@ public class FrameServicoRegistro extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         btSalvar = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btRetornar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -222,7 +227,12 @@ public class FrameServicoRegistro extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Retornar");
+        btRetornar.setText("Retornar");
+        btRetornar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRetornarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -275,7 +285,7 @@ public class FrameServicoRegistro extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(btSalvar)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)))
+                        .addComponent(btRetornar)))
                 .addGap(82, 82, 82))
             .addGroup(layout.createSequentialGroup()
                 .addGap(138, 138, 138)
@@ -317,7 +327,7 @@ public class FrameServicoRegistro extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btSalvar)
-                    .addComponent(jButton2))
+                    .addComponent(btRetornar))
                 .addGap(15, 15, 15))
         );
 
@@ -345,8 +355,60 @@ public class FrameServicoRegistro extends javax.swing.JFrame {
     }//GEN-LAST:event_cbBateriaActionPerformed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
-        // TODO add your handling code here:
+        for (Component componente : getContentPane().getComponents()) {
+            
+    if (componente instanceof JCheckBox) {
+        JCheckBox cb = (JCheckBox) componente;
+        if (cb.isSelected()) {
+            Pecas pecas = new Pecas(); // Criando um novo objeto Pecas
+            switch (cb.getText()) {
+                case "Bateria":
+                    pecas.setNome("Bateria");
+                    pecas.setValorUnitario(precoBateria);
+                    pecas.setQuantidade((Integer) spBateria.getValue());
+                    Controller.listaPecas.add(pecas);
+                    break;
+                case "Juntas do Motor":
+                    pecas.setNome("Juntas do Motor");
+                    pecas.setValorUnitario(precoJuntasMotor);
+                    pecas.setQuantidade((Integer) spJuntasMotor.getValue());
+                    Controller.listaPecas.add(pecas);
+                    break;
+                case "Bomba da água":
+                    pecas.setNome("Bomba da água");
+                    pecas.setValorUnitario(precoBombaAgua);
+                    pecas.setQuantidade((Integer) spBombaAgua.getValue());
+                    Controller.listaPecas.add(pecas);
+                    break;
+                case "Termostato":
+                    pecas.setNome("Termostato");
+                    pecas.setValorUnitario(precoTermostato);
+                    pecas.setQuantidade((Integer) spTermostato.getValue());
+                    Controller.listaPecas.add(pecas);
+                    break;
+                case "Fluído de Transmissão":
+                    pecas.setNome("Fluído de Transmissão");
+                    pecas.setValorUnitario(precoFluidoTransmissao);
+                    pecas.setQuantidade((Integer) spFluidoTransimissao.getValue());
+                    Controller.listaPecas.add(pecas);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+}           
+        JOptionPane.showMessageDialog(this, "Salvo com Sucesso");
+        FrameTelaGeral frameTelaGeral = new FrameTelaGeral();
+        frameTelaGeral.setVisible(true);
     }//GEN-LAST:event_btSalvarActionPerformed
+
+    private void btRetornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRetornarActionPerformed
+      FrameTelaGeral frameTelaGeral = new FrameTelaGeral();
+      frameTelaGeral.setVisible(true);
+      
+      this.dispose();
+    }//GEN-LAST:event_btRetornarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -380,13 +442,13 @@ public class FrameServicoRegistro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btRetornar;
     private javax.swing.JButton btSalvar;
     private javax.swing.JCheckBox cbBateria;
     private javax.swing.JCheckBox cbBombaAgua;
     private javax.swing.JCheckBox cbFluidoTransmissao;
     private javax.swing.JCheckBox cbJuntasMotor;
     private javax.swing.JCheckBox cbTermostato;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

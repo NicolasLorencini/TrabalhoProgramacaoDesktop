@@ -7,6 +7,7 @@ package trabalho1bimestre;
 import trabalho1bimestre.model.InformacoesPessoais;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import trabalho1bimestre.controller.Controller;
 
 /**
  *
@@ -17,7 +18,7 @@ public class FrameInformacoesPessoais extends javax.swing.JFrame {
          private String contato;
          private String endereco;
          
-          public ArrayList<InformacoesPessoais> listaInformacoesPessoais = new ArrayList<>();
+        
          
     /**
      * Creates new form FrameInformacoesPessoais
@@ -25,7 +26,7 @@ public class FrameInformacoesPessoais extends javax.swing.JFrame {
     public FrameInformacoesPessoais() {
         initComponents();
        
-        
+        Controller.listaInformacoesPessoais = new ArrayList<>();
     }
 
     /**
@@ -182,7 +183,7 @@ public class FrameInformacoesPessoais extends javax.swing.JFrame {
         
         InformacoesPessoais informacoesPessoais = new InformacoesPessoais();
         
-        listaInformacoesPessoais.add(informacoesPessoais);
+        Controller.listaInformacoesPessoais.add(informacoesPessoais);
         
         
     }//GEN-LAST:event_btSalvarActionPerformed

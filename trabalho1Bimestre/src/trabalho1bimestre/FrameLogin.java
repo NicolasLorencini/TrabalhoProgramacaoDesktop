@@ -23,6 +23,7 @@ public class FrameLogin extends javax.swing.JFrame {
      */
     public FrameLogin() {
         initComponents();
+        setLocationRelativeTo(this);
     }
 
     /**
