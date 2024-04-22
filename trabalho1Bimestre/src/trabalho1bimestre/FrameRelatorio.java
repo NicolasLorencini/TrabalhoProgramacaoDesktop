@@ -4,6 +4,14 @@
  */
 package trabalho1bimestre;
 
+import java.awt.Dimension;
+import trabalho1bimestre.controller.Controller;
+import trabalho1bimestre.model.InformacoesPessoais;
+import trabalho1bimestre.model.InformacoesVeiculo;
+import trabalho1bimestre.model.Pecas;
+import trabalho1bimestre.model.ServicoPrestado;
+import trabalho1bimestre.model.SintomaVeiculo;
+
 /**
  *
  * @author aluno
@@ -15,6 +23,11 @@ public class FrameRelatorio extends javax.swing.JFrame {
      */
     public FrameRelatorio() {
         initComponents();
+        setLocationRelativeTo(this);
+        setPreferredSize(new Dimension(1200, 900));
+        pack();
+        setLocationRelativeTo(this);
+        exibirRelatorio();            
     }
 
     /**
@@ -26,22 +39,100 @@ public class FrameRelatorio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        tfInformaçõesPessoais = new javax.swing.JTextField();
+        tfInformacoesVeiculo = new javax.swing.JTextField();
+        tfPecas = new javax.swing.JTextField();
+        tfServicoPrestado = new javax.swing.JTextField();
+        tfSintomasViculo = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        tfServicoPrestado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfServicoPrestadoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(tfSintomasViculo, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
+                    .addComponent(tfServicoPrestado)
+                    .addComponent(tfPecas)
+                    .addComponent(tfInformacoesVeiculo)
+                    .addComponent(tfInformaçõesPessoais))
+                .addContainerGap(179, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(48, Short.MAX_VALUE)
+                .addComponent(tfInformaçõesPessoais, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(tfInformacoesVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(tfPecas, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(tfServicoPrestado, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(tfSintomasViculo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tfServicoPrestadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfServicoPrestadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfServicoPrestadoActionPerformed
+    
+     private void exibirRelatorio() {
+      
+        StringBuilder infoPessoais = new StringBuilder();
+        for (InformacoesPessoais info : Controller.listaInformacoesPessoais) {
+            infoPessoais.append("Idade: ").append(info.getIdade()).append(", ");
+            infoPessoais.append("Contato: ").append(info.getContato()).append(", ");
+            infoPessoais.append("Endereço: ").append(info.getEndereco()).append("\n");
+        }
+        tfInformaçõesPessoais.setText(infoPessoais.toString());
+
+       
+        StringBuilder infoVeiculo = new StringBuilder();
+        for (InformacoesVeiculo info : Controller.listaInformacoesVeiculo) {
+            infoVeiculo.append("Marca: ").append(info.getMarca()).append(", ");
+            infoVeiculo.append("Modelo: ").append(info.getModelo()).append(", ");
+            infoVeiculo.append("Placa: ").append(info.getPlaca()).append(", ");
+            infoVeiculo.append("Ano: ").append(info.getAno()).append(" ");
+        }
+        tfInformacoesVeiculo.setText(infoVeiculo.toString());
+
+       
+        StringBuilder pecas = new StringBuilder();
+        for (Pecas peca : Controller.listaPecas) {
+            pecas.append("Lista das Peças ").append(peca.getNome()).append("/n ");
+            pecas.append("Valor Unitário: ").append(peca.getValorUnitario()).append("\n ");
+            pecas.append("Quantidade: ").append(peca.getQuantidade()).append("\n");
+        }
+        tfPecas.setText(pecas.toString());
+
+       
+        StringBuilder servicos = new StringBuilder();
+        for (ServicoPrestado servico : Controller.listaServicoPrestado) {
+            servicos.append("Serviços Prestados ").append(servico.getNome()).append(", ");
+            servicos.append("Valor Unitário: ").append(servico.getValorUnitario()).append("\n");
+        }
+        tfServicoPrestado.setText(servicos.toString());
+
+        StringBuilder sintomas = new StringBuilder();
+        for (SintomaVeiculo sintoma : Controller.listaSintomaVeiculo) {
+            sintomas.append("Sintoma: ").append(sintoma.getSintoma()).append("\n");
+        }
+        tfSintomasViculo.setText(sintomas.toString());
+    }
     /**
      * @param args the command line arguments
      */
@@ -78,5 +169,10 @@ public class FrameRelatorio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField tfInformacoesVeiculo;
+    private javax.swing.JTextField tfInformaçõesPessoais;
+    private javax.swing.JTextField tfPecas;
+    private javax.swing.JTextField tfServicoPrestado;
+    private javax.swing.JTextField tfSintomasViculo;
     // End of variables declaration//GEN-END:variables
 }

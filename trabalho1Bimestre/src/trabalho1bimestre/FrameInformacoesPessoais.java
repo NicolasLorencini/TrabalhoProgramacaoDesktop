@@ -167,10 +167,17 @@ public class FrameInformacoesPessoais extends javax.swing.JFrame {
         else if(contato.isEmpty()){
         JOptionPane.showMessageDialog(this, "PREENCHA A CAMPO DE CONTATO!!", "ERRO", JOptionPane.ERROR_MESSAGE);
         
-    }else if(endereco.isEmpty()){
+       }else if(endereco.isEmpty()){
          JOptionPane.showMessageDialog(this, "PREENCHA A CAMPO DE ENDEREÇO!!", "ERRO", JOptionPane.ERROR_MESSAGE);
     }
-    else {              
+        else {                        
+            InformacoesPessoais informacoesPessoais = new InformacoesPessoais();
+            informacoesPessoais.setIdade(idade);
+            informacoesPessoais.setContato(contato);
+            informacoesPessoais.setEndereco(endereco);
+            
+            Controller.listaInformacoesPessoais.add(informacoesPessoais);
+           
         JOptionPane.showMessageDialog(this, "Salvo com sucesso");
         
         FrameTelaGeral frameTelaGeral = new FrameTelaGeral();

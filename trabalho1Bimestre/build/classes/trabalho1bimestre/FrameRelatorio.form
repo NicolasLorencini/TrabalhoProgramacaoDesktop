@@ -23,13 +23,50 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="tfSintomasViculo" alignment="0" pref="589" max="32767" attributes="0"/>
+                  <Component id="tfServicoPrestado" alignment="0" max="32767" attributes="0"/>
+                  <Component id="tfPecas" max="32767" attributes="0"/>
+                  <Component id="tfInformacoesVeiculo" max="32767" attributes="0"/>
+                  <Component id="tfInformaçõesPessoais" alignment="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace pref="179" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="300" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace pref="48" max="32767" attributes="0"/>
+              <Component id="tfInformaçõesPessoais" min="-2" pref="70" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="tfInformacoesVeiculo" min="-2" pref="70" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="tfPecas" min="-2" pref="70" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="tfServicoPrestado" min="-2" pref="70" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="tfSintomasViculo" min="-2" pref="70" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JTextField" name="tfInforma&#xe7;&#xf5;esPessoais">
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfInformacoesVeiculo">
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfPecas">
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfServicoPrestado">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfServicoPrestadoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tfSintomasViculo">
+    </Component>
+  </SubComponents>
 </Form>

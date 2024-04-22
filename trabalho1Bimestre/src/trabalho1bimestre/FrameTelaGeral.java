@@ -35,7 +35,7 @@ public class FrameTelaGeral extends javax.swing.JFrame {
 
         btIformacoesPessoais = new javax.swing.JButton();
         btInformacoesVeiculo = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btRelatorio = new javax.swing.JButton();
         btSintomasVeiculo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -54,10 +54,10 @@ public class FrameTelaGeral extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Registro dos Serviços");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btRelatorio.setText("Registro dos Serviços");
+        btRelatorio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btRelatorioActionPerformed(evt);
             }
         });
 
@@ -77,7 +77,7 @@ public class FrameTelaGeral extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btIformacoesPessoais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btInformacoesVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btRelatorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btSintomasVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(120, Short.MAX_VALUE))
         );
@@ -91,7 +91,7 @@ public class FrameTelaGeral extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btSintomasVeiculo)
                 .addGap(16, 16, 16)
-                .addComponent(jButton1)
+                .addComponent(btRelatorio)
                 .addContainerGap(111, Short.MAX_VALUE))
         );
 
@@ -112,9 +112,12 @@ public class FrameTelaGeral extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btInformacoesVeiculoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRelatorioActionPerformed
+       FrameRelatorio frameRelatorio = new FrameRelatorio();
+       frameRelatorio.setVisible(true);
+        
+        this.dispose();
+    }//GEN-LAST:event_btRelatorioActionPerformed
 
     private void btSintomasVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSintomasVeiculoActionPerformed
       FrameServicosPrestados frameServicosPrestados = new FrameServicosPrestados();
@@ -161,7 +164,7 @@ public class FrameTelaGeral extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btIformacoesPessoais;
     private javax.swing.JButton btInformacoesVeiculo;
+    private javax.swing.JButton btRelatorio;
     private javax.swing.JButton btSintomasVeiculo;
-    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }

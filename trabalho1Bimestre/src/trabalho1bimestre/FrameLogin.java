@@ -124,7 +124,9 @@ public class FrameLogin extends javax.swing.JFrame {
         else if(senhaUsuario.isEmpty()){
         JOptionPane.showMessageDialog(this, "PREENCHA A CAMPO DE SENHA!!", "ERRO", JOptionPane.ERROR_MESSAGE);
     }
-    else {              
+     else if (senhaUsuario.length() < 6) {
+            JOptionPane.showMessageDialog(this, "A senha deve ter pelo menos 6 caracteres!", "Erro", JOptionPane.ERROR_MESSAGE);
+     } else {              
         JOptionPane.showMessageDialog(this, "Bem vindo "+ nomeUsuario);
         
         Login login = new Login();

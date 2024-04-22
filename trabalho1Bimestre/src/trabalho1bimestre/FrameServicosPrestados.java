@@ -5,6 +5,7 @@
 package trabalho1bimestre;
 
 import java.awt.Component;
+import java.awt.Dimension;
 import java.util.ArrayList;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
@@ -21,6 +22,9 @@ public class FrameServicosPrestados extends javax.swing.JFrame {
 
     public FrameServicosPrestados() {
         initComponents();
+       setLocationRelativeTo(this);
+        setPreferredSize(new Dimension(900, 750));
+        pack();
         setLocationRelativeTo(this);
         
         Controller.listaServicoPrestado = new ArrayList<>();
@@ -279,7 +283,10 @@ public class FrameServicosPrestados extends javax.swing.JFrame {
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
-        // TODO add your handling code here:
+       FrameTelaGeral frameTelaGeral = new FrameTelaGeral();
+       frameTelaGeral.setVisible(true);
+        
+        this.dispose();
     }//GEN-LAST:event_btVoltarActionPerformed
 
     

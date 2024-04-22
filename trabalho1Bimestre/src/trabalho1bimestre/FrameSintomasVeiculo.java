@@ -4,7 +4,11 @@
  */
 package trabalho1bimestre;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import trabalho1bimestre.controller.Controller;
+import static trabalho1bimestre.controller.Controller.listaSintomaVeiculo;
+import trabalho1bimestre.model.SintomaVeiculo;
 
 /**
  *
@@ -17,6 +21,8 @@ public class FrameSintomasVeiculo extends javax.swing.JFrame {
      */
     public FrameSintomasVeiculo() {
         initComponents();
+        
+         Controller.listaSintomaVeiculo = new ArrayList<>();
     }
 
     /**
@@ -96,17 +102,25 @@ public class FrameSintomasVeiculo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
-        JOptionPane.showMessageDialog(this, "Redirecionando para a próxima pagina");
         
-        FrameServicoRegistro frameServicoRegistro = new FrameServicoRegistro();
-        frameServicoRegistro.setVisible(true);
+        String sintoma = taSituacaoVeiculo.getText();
+        if (!sintoma.isEmpty()) {
+            SintomaVeiculo novoSintoma = new SintomaVeiculo(sintoma);
+            listaSintomaVeiculo.add(novoSintoma);
+            JOptionPane.showMessageDialog(this, "Sintoma do veículo salvo com sucesso!");           
+        } else {
+            JOptionPane.showMessageDialog(this, "Por favor, informe um sintoma do veículo.");
+        }
+        
+        FrameTelaGeral frameTelaGeral = new FrameTelaGeral();
+        frameTelaGeral.setVisible(true);
         
         this.dispose();
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
-        FrameTelaGeral frameTelaGeral = new FrameTelaGeral();
-        frameTelaGeral.setVisible(true);
+        FrameInformacoesVeiculo frameInformacoesVeiculo = new FrameInformacoesVeiculo();
+        frameInformacoesVeiculo.setVisible(true);
         
         this.dispose();
     }//GEN-LAST:event_btVoltarActionPerformed
